@@ -14,30 +14,116 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    font-family: "Trebuchet MS", sans-serif;
 }
 
 .caixa-principal{
     background-color: var(--cor-principal);
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    padding: 20px;
+    width: min(100%, 760px);
+    padding: 52px;
+    border-radius: 18px;
+    box-shadow: 0 20px 55px rgba(24, 59, 50, 0.18);
+    box-sizing: border-box;
 }
 
-h1{
+.tela-inicial {
+    text-align: left;
+}
+
+.etiqueta {
+    margin: 0 0 20px;
     color: var(--cor-destaque);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    max-width: 620px;
+    margin: 0;
+    color: var(--cor-texto);
+    font-family: Georgia, serif;
+    font-size: 2.8rem;
+    line-height: 1.12;
+}
+
+.resumo {
+    max-width: 610px;
+    margin: 24px 0 30px;
+    color: #E1E9DE;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 button {
     background-color: var(--cor-secundaria);
     color: var(--cor-texto);
-    border: none;
-    border-radius: 15px;
-    padding: 15px;
-    transition: background-color 0.3s;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
-button:hover{
+button:hover {
     background-color: var(--cor-destaque);
-    color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
+
+.botao-iniciar span {
+    margin-left: 12px;
+}
+
+.conteudo-jogo[hidden] {
+    display: none;
+}
+
+.caixa-perguntas {
+    margin-bottom: 24px;
+    font-family: Georgia, serif;
+    font-size: 1.55rem;
+    line-height: 1.4;
+}
+
+.caixa-alternativas button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.caixa-resultado {
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    .caixa-principal {
+        padding: 30px 24px;
+        border-radius: 14px;
+    }
+
+    h1 {
+        font-size: 2.1rem;
+    }
+
+    .caixa-perguntas {
+        font-size: 1.3rem;
+    }
 }

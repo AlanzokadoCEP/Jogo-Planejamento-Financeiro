@@ -1,4 +1,7 @@
 const caixaPrincipal = document.querySelector(".caixa-principal");
+const telaInicial = document.querySelector(".tela-inicial");
+const conteudoJogo = document.querySelector(".conteudo-jogo");
+const botaoIniciar = document.querySelector(".botao-iniciar");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
@@ -6,70 +9,70 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
+        enunciado: "Você recebeu seu pagamento. O que faz primeiro?",
         alternativas: [
             {
-                texto: "Isso é assustador!",
-                afirmacao: "afirmacao"
+                texto: "Organizo as contas e separo uma parte para meus objetivos.",
+                afirmacao: "Você começou dando um destino ao seu dinheiro e priorizando o que é importante."
             },
             {
-                texto: "Isso é maravilhoso!",
-                afirmacao: "afirmacao"
+                texto: "Vou usando e vejo o que sobra no fim do mês.",
+                afirmacao: "Anotar seus gastos pode ajudar a perceber para onde o dinheiro está indo."
             }           
             
         ]
     },
     {
-        enunciado: "Com a descoberta desta tecnologia, chamada Inteligência Artificial (IA), uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre elaIA. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de tecnologia em sala de aula. Qual atitude você toma?",
+        enunciado: "Apareceu um gasto inesperado. Qual é seu próximo passo?",
         alternativas: [
             {
-                texto:"Utilizar uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento",
-                afirmacao:"afirmacao"
+                texto:"Uso minha reserva de emergência, se tenho uma.",
+                afirmacao:"Uma reserva pode evitar que imprevistos virem dívidas."
             },
             {
-                texto: "Escrever o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-                afirmacao:"afirmacao"
+                texto: "Pago no crédito e resolvo isso depois.",
+                afirmacao:"Comparar as opções de pagamento antes de parcelar ajuda a proteger seu orçamento."
             }
         ]
     },
     {
-        enunciado: "Após a elaboração do trabalho, a professora realizou um debate entre a turma para entender como foi realizada a pesquisa e escrita. Nessa conversa também foi levantado um ponto muito importante: como a IA impacta o trabalho do futuro. Nesse debate, como você se posiciona?",
+        enunciado: "Você quer realizar um objetivo, como viajar ou comprar algo importante. Como se prepara?",
         alternativas: [
             {
-                texto:"Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.",
-                afirmacao:"afirmacao"
+                texto:"Defino quanto custa e quanto posso guardar por mês.",
+                afirmacao:"Transformar um objetivo em valor e prazo deixa o plano mais concreto."
             },
             {
-                texto:"Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
-                afirmacao:"afirmacao"
-            }
-            
-        ]
-    },
-    {
-        enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
-        alternativas: [
-            {
-                texto:"Criar uma imagem utilizando uma plataforma de design como o Paint.",
-                afirmacao:"afirmacao"
-            },
-            {
-                texto:"Criar uma imagem utilizando um gerador de imagem de IA.",
-                afirmacao:"afirmacao"
+                texto:"Compro agora e depois penso em como pagar.",
+                afirmacao:"Planejar antes de comprar ajuda a evitar parcelas que pesem no mês."
             }
             
         ]
     },
     {
-        enunciado: " Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda de uma IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz?",
+        enunciado: "As contas do mês ficaram apertadas. Como você decide o que pagar primeiro?",
         alternativas: [
             {
-                texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",
-                afirmacao:"afirmacao"
+                texto:"Priorizo despesas essenciais e dívidas com juros maiores.",
+                afirmacao:"Priorizar o essencial e as dívidas mais caras pode reduzir o impacto dos juros."
             },
             {
-                texto: "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
-                afirmacao:"afirmacao"
+                texto:"Pago sem conferir valores, vencimentos ou juros.",
+                afirmacao:"Conferir vencimentos e juros dá mais clareza para escolher o que fazer primeiro."
+            }
+            
+        ]
+    },
+    {
+        enunciado: "Com que frequência você revisa seu planejamento financeiro?",
+        alternativas: [
+            {
+                texto: "Todo mês, para ajustar o plano à minha realidade.",
+                afirmacao:"Revisar o orçamento regularmente ajuda a manter seus planos possíveis e atualizados."
+            },
+            {
+                texto: "Só quando percebo que o dinheiro não vai dar.",
+                afirmacao:"Acompanhar pequenas mudanças no mês pode ajudar a evitar surpresas no orçamento."
             }
             
             
@@ -109,9 +112,13 @@ function respostaSelecionada(opcaoSelecionada){
 }
 
 function mostraResultado(){
-    caixaPerguntas.textContent = "Em 2049...";
+    caixaPerguntas.textContent = "Seu caminho para o equilíbrio financeiro";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = ""; 
 }
 
-mostraPergunta();
+botaoIniciar.addEventListener("click", () => {
+    telaInicial.hidden = true;
+    conteudoJogo.hidden = false;
+    mostraPergunta();
+});

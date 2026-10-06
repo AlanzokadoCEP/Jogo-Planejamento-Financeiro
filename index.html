@@ -7,14 +7,21 @@
     <title>Planejamento Financeiro</title>
 </head>
 <body>
-    <div class="caixa-principal">
-        <h1>Planejamento Financeiro</h1>
-        <div class="caixa-perguntas"></div>
-        <div class="caixa-alternativas"></div>
-        <div class="caixa-resultado">
-            <p class="texto-resultado"></p>
-        </div>
-    </div>
+    <main class="caixa-principal">
+        <section class="tela-inicial" aria-labelledby="titulo-inicial">
+            <p class="etiqueta">JOGO DE PLANEJAMENTO FINANCEIRO</p>
+            <h1 id="titulo-inicial">Seu futuro financeiro começa com uma escolha.</h1>
+            <p class="resumo">Planejar o dinheiro é entender o que entra e o que sai, definir prioridades e construir objetivos com mais tranquilidade. Faça escolhas do dia a dia e descubra como pequenas decisões podem transformar seus planos.</p>
+            <button class="botao-iniciar" type="button">Iniciar jogo <span aria-hidden="true">&#8594;</span></button>
+        </section>
+        <section class="conteudo-jogo" aria-live="polite" hidden>
+            <div class="caixa-perguntas"></div>
+            <div class="caixa-alternativas"></div>
+            <div class="caixa-resultado">
+                <p class="texto-resultado"></p>
+            </div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
