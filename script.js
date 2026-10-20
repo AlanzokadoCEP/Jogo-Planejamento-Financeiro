@@ -320,9 +320,16 @@ function mostraGameOver(){
 function jogarNovamente(){
     atual = 0;
     historiaFinal = "";
+    nomeJogador = "";
+    perguntasDaPartida = [];
+    campoNomeJogador.value = "";
+    campoNomeJogador.setCustomValidity("");
     textoResultado.textContent = "";
-    perguntasDaPartida = selecionaPerguntasDaPartida();
-    mostraPergunta();
+    caixaPerguntas.textContent = "";
+    caixaAlternativas.textContent = "";
+    conteudoJogo.hidden = true;
+    telaInicial.hidden = false;
+    campoNomeJogador.focus();
 }
 
 formularioInicial.addEventListener("submit", (evento) => {
