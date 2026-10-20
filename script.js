@@ -55,11 +55,29 @@ const perguntas = [
         ]
     },
     {
+        nivel: "Fácil",
+        enunciado: "Você quer descobrir para onde vai o dinheiro durante a semana. O que pode fazer?",
+        alternativas: [
+            { texto: "Anoto os gastos por alguns dias e separo por categoria.", afirmacao: "Registrar os gastos revela hábitos e ajuda a encontrar ajustes possíveis." },
+            { texto: "Decido repensar a forma como estou cuidando da minha reserva.", afirmacao: "Reavaliar seus planos pode ajudar a encontrar um equilíbrio possível.", acao: "voltar" },
+            { texto: "Ignoro os gastos e continuo usando crédito sem acompanhar o saldo.", afirmacao: "Sem acompanhar os gastos, o crédito acumulou e comprometeu seu orçamento. Game over.", acao: "gameover" }
+        ]
+    },
+    {
+        nivel: "Fácil",
+        enunciado: "Uma pessoa da família pediu ajuda financeira. Como decidir se você pode ajudar?",
+        alternativas: [
+            { texto: "Confiro minhas contas e ofereço apenas um valor que cabe no orçamento.", afirmacao: "Ajudar sem comprometer suas despesas essenciais protege o planejamento de todos." },
+            { texto: "Combino um valor e uma data para conversar sobre a devolução.", afirmacao: "Deixar as condições claras evita mal-entendidos e ajuda a organizar as finanças." },
+            { texto: "Faço um empréstimo no meu nome sem avaliar se consigo pagar.", afirmacao: "A dívida ficou sob sua responsabilidade e comprometeu suas contas. Game over.", acao: "gameover" }
+        ]
+    },
+    {
         nivel: "Médio",
         enunciado: "Sua renda varia de um mês para outro. Como montar um orçamento realista?",
         alternativas: [
             { texto: "Analiso a renda dos últimos meses e faço uma previsão prudente.", afirmacao: "Usar o histórico e uma estimativa conservadora ajuda a não comprometer uma renda incerta." },
-            { texto: "Volto à pergunta anterior e refaço a estimativa de renda.", afirmacao: "Revisar a estimativa pode ajudar a montar um orçamento mais prudente.", acao: "voltar" },
+            { texto: "Minha renda mudou. Reconsidero a estratégia que escolhi.", afirmacao: "Um ajuste cuidadoso pode deixar o orçamento mais coerente com a realidade.", acao: "voltar" },
             { texto: "Ignoro as variações e mantenho os mesmos gastos sempre.", afirmacao: "Revisar o orçamento conforme a renda muda ajuda a manter as despesas sob controle." }
         ]
     },
@@ -95,8 +113,26 @@ const perguntas = [
         enunciado: "Você gastou mais do que planejou em uma categoria. O que fazer?",
         alternativas: [
             { texto: "Identifico o motivo e ajusto os próximos meses ou outras categorias.", afirmacao: "Entender a causa do desvio permite ajustar o plano sem perder as prioridades." },
-            { texto: "Volto à pergunta anterior para rever meus gastos com calma.", afirmacao: "Revisar a etapa anterior pode ajudar a encontrar um ajuste melhor.", acao: "voltar" },
+            { texto: "Decido analisar com mais calma o que saiu do planejado.", afirmacao: "Revisar suas escolhas pode revelar ajustes úteis para o orçamento.", acao: "voltar" },
             { texto: "Cubro a diferença com crédito sem rever os gastos.", afirmacao: "Cobrir gastos recorrentes com crédito pode criar dívidas; revise o orçamento primeiro." }
+        ]
+    },
+    {
+        nivel: "Médio",
+        enunciado: "Você recebeu uma proposta para renegociar uma dívida. O que deve conferir?",
+        alternativas: [
+            { texto: "Taxa de juros, custo total, prazo e valor de cada parcela.", afirmacao: "Comparar as condições completas ajuda a saber se a renegociação realmente reduz o custo." },
+            { texto: "Peço as condições por escrito e comparo com a dívida atual.", afirmacao: "Ter as condições registradas facilita a comparação e evita decidir apenas pela parcela." },
+            { texto: "Aceito na hora sem ler e assumo parcelas que não cabem no orçamento.", afirmacao: "As novas parcelas ficaram inviáveis e a renegociação agravou sua situação. Game over.", acao: "gameover" }
+        ]
+    },
+    {
+        nivel: "Médio",
+        enunciado: "Você planeja comprar um eletrodoméstico caro. Como avaliar o impacto no orçamento?",
+        alternativas: [
+            { texto: "Pesquiso preços e verifico quanto posso pagar sem comprometer as contas.", afirmacao: "Pesquisar e definir um limite antes da compra ajuda a preservar as prioridades." },
+            { texto: "Comparo o custo total à vista e parcelado antes de decidir.", afirmacao: "Comparar o preço final permite escolher com mais clareza entre as formas de pagamento." },
+            { texto: "Faço várias compras parceladas ao mesmo tempo sem somar as prestações.", afirmacao: "As parcelas acumuladas ultrapassaram sua capacidade de pagamento. Game over.", acao: "gameover" }
         ]
     },
     {
@@ -144,6 +180,24 @@ const perguntas = [
             { texto: "Mudo de estratégia sempre que vejo uma dica nova.", afirmacao: "Medir resultados e revisar objetivos antes de mudar ajuda a tomar decisões consistentes." }
         ]
     },
+    {
+        nivel: "Difícil",
+        enunciado: "Você está escolhendo um investimento para uma meta com prazo definido. Como alinhar a escolha?",
+        alternativas: [
+            { texto: "Comparo o prazo do investimento com a data em que precisarei do dinheiro.", afirmacao: "Alinhar vencimento e objetivo reduz o risco de precisar resgatar o dinheiro em uma hora ruim." },
+            { texto: "Avalio liquidez e riscos antes de aplicar o valor destinado à meta.", afirmacao: "Considerar acesso ao dinheiro e riscos ajuda a escolher algo compatível com seu plano." },
+            { texto: "Invisto todo o valor em algo que só posso resgatar depois da data da meta.", afirmacao: "O dinheiro ficou indisponível quando você precisava cumprir o objetivo. Game over.", acao: "gameover" }
+        ]
+    },
+    {
+        nivel: "Difícil",
+        enunciado: "Uma mudança importante pode reduzir sua renda nos próximos meses. Como se preparar?",
+        alternativas: [
+            { texto: "Faço cenários de orçamento e identifico despesas que posso ajustar.", afirmacao: "Planejar cenários permite antecipar decisões e adaptar o orçamento antes da mudança." },
+            { texto: "Reviso a reserva e converso com as pessoas envolvidas nas despesas da casa.", afirmacao: "Rever a reserva e alinhar as decisões ajuda a preparar o orçamento familiar." },
+            { texto: "Ignoro a mudança e assumo novas dívidas contando com uma renda que pode não vir.", afirmacao: "A renda esperada não se confirmou e as novas dívidas comprometeram o plano. Game over.", acao: "gameover" }
+        ]
+    },
 ];
 
 let atual = 0; 
@@ -152,16 +206,26 @@ let historiaFinal = "";
 let nomeJogador = "";
 let perguntasDaPartida = [];
 
-function embaralhaPerguntas() {
-    const perguntasEmbaralhadas = [...perguntas];
+function embaralha(lista) {
+    const listaEmbaralhada = [...lista];
 
-    for (let indice = perguntasEmbaralhadas.length - 1; indice > 0; indice--) {
+    for (let indice = listaEmbaralhada.length - 1; indice > 0; indice--) {
         const indiceAleatorio = Math.floor(Math.random() * (indice + 1));
-        [perguntasEmbaralhadas[indice], perguntasEmbaralhadas[indiceAleatorio]] =
-            [perguntasEmbaralhadas[indiceAleatorio], perguntasEmbaralhadas[indice]];
+        [listaEmbaralhada[indice], listaEmbaralhada[indiceAleatorio]] =
+            [listaEmbaralhada[indiceAleatorio], listaEmbaralhada[indice]];
     }
 
-    return perguntasEmbaralhadas;
+    return listaEmbaralhada;
+}
+
+function selecionaPerguntasDaPartida() {
+    const niveis = ["Fácil", "Médio", "Difícil"];
+    const perguntasSelecionadas = niveis.flatMap((nivel) => {
+        const perguntasDoNivel = perguntas.filter((pergunta) => pergunta.nivel === nivel);
+        return embaralha(perguntasDoNivel).slice(0, 5);
+    });
+
+    return embaralha(perguntasSelecionadas);
 }
 
 function mostraPergunta() {
@@ -176,7 +240,9 @@ function mostraPergunta() {
 }
 
 function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas){
+    const alternativasEmbaralhadas = embaralha(perguntaAtual.alternativas);
+
+    for(const alternativa of alternativasEmbaralhadas){
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
         botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
@@ -194,7 +260,8 @@ function respostaSelecionada(opcaoSelecionada){
     }
 
     if (opcaoSelecionada.acao === "voltar") {
-        atual = atual === 0 ? perguntasDaPartida.length - 1 : atual - 1;
+        const distanciaVolta = Math.floor(Math.random() * 3) + 1;
+        atual = (atual - distanciaVolta + perguntasDaPartida.length) % perguntasDaPartida.length;
     } else if (opcaoSelecionada.acao === "aleatoria") {
         let indiceAleatorio = Math.floor(Math.random() * (perguntasDaPartida.length - 1));
         if (indiceAleatorio >= atual) {
@@ -211,7 +278,32 @@ function respostaSelecionada(opcaoSelecionada){
 function mostraResultado(){
     caixaPerguntas.textContent = `${nomeJogador}, você concluiu o planejamento financeiro!`;
     textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = ""; 
+    caixaAlternativas.textContent = "";
+
+    const botaoContinuar = document.createElement("button");
+    botaoContinuar.textContent = "Continuar";
+    botaoContinuar.addEventListener("click", mostraCreditos);
+    caixaAlternativas.appendChild(botaoContinuar);
+}
+
+function mostraCreditos(){
+    caixaPerguntas.textContent = `Parabéns, ${nomeJogador}! Obrigado por jogar!`;
+    textoResultado.textContent = "Créditos";
+
+    const creditos = [
+        "Pesquisa: Pietro",
+        "Montagem do código: Alan",
+        "Contribuição com os códigos: Professor Fábio Cezar",
+        "Diretores do jogo: Alan e Pietro"
+    ];
+
+    for (const credito of creditos) {
+        const linhaCredito = document.createElement("p");
+        linhaCredito.textContent = credito;
+        caixaResultado.appendChild(linhaCredito);
+    }
+
+    caixaAlternativas.textContent = "";
 }
 
 function mostraGameOver(){
@@ -229,7 +321,7 @@ function jogarNovamente(){
     atual = 0;
     historiaFinal = "";
     textoResultado.textContent = "";
-    perguntasDaPartida = embaralhaPerguntas();
+    perguntasDaPartida = selecionaPerguntasDaPartida();
     mostraPergunta();
 }
 
@@ -243,7 +335,7 @@ formularioInicial.addEventListener("submit", (evento) => {
         return;
     }
 
-    perguntasDaPartida = embaralhaPerguntas();
+    perguntasDaPartida = selecionaPerguntasDaPartida();
     telaInicial.hidden = true;
     conteudoJogo.hidden = false;
     mostraPergunta();
