@@ -58,6 +58,30 @@ h1 {
     line-height: 1.7;
 }
 
+.formulario-inicial label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.formulario-inicial input {
+    display: block;
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 13px 14px;
+    border: 1px solid #B8C8BA;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #F7F4E8;
+    color: var(--cor-secundaria);
+    font: inherit;
+}
+
+.formulario-inicial input:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
+
 button {
     background-color: var(--cor-secundaria);
     color: var(--cor-texto);
