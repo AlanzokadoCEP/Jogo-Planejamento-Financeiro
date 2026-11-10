@@ -23,6 +23,8 @@ let faseDaPartida = "inicio";
 let nomeJogador = "";
 let ordemPorCaminho = { A: [], B: [] };
 let indicePorCaminho = { A: -1, B: -1 };
+let perguntasVisitadas = { A: new Set(), B: new Set() };
+let retornosUsados = { A: new Set(), B: new Set() };
 
 formularioInicial.addEventListener("submit", iniciaJogo);
 botaoJogarNovamente.addEventListener("click", reiniciaJogo);
@@ -52,6 +54,8 @@ function reiniciaJogo() {
     campoNomeJogador.value = "";
     ordemPorCaminho = { A: [], B: [] };
     indicePorCaminho = { A: -1, B: -1 };
+    perguntasVisitadas = { A: new Set(), B: new Set() };
+    retornosUsados = { A: new Set(), B: new Set() };
     caixaPerguntas.textContent = "";
     identificadorCaminho.textContent = "";
     identificadorCaminho.hidden = true;
@@ -106,6 +110,10 @@ function mostraPergunta() {
         return;
     }
 
+    if (perguntaAtual.caminho === "A" || perguntaAtual.caminho === "B") {
+        perguntasVisitadas[perguntaAtual.caminho].add(perguntaAtual.id);
+    }
+
     identificadorCaminho.textContent = perguntaAtual.caminho === "A"
         ? "Caminho 1 · Organizar o orçamento mensal"
         : perguntaAtual.caminho === "B"
@@ -117,7 +125,7 @@ function mostraPergunta() {
     caixaPerguntas.textContent = perguntaAtual.enunciado.replace(/você/gi, nomeJogador);
     caixaAlternativas.replaceChildren();
 
-    for (const alternativa of perguntaAtual.alternativas) {
+    for (const alternativa of embaralha(perguntaAtual.alternativas)) {
         const botao = document.createElement("button");
         botao.type = "button";
         botao.textContent = alternativa.texto;
@@ -156,12 +164,24 @@ function respostaSelecionada(opcaoSelecionada) {
         }
     } else if (opcaoSelecionada.tipo === "salto") {
         const caminho = origem.caminho;
-        const indiceAnterior = indicePorCaminho[caminho] - 1;
-        if (indiceAnterior < 0) {
+        const candidatas = [...perguntasVisitadas[caminho]].filter(
+            (id) => id !== atual && !retornosUsados[caminho].has(id)
+        );
+
+        if (candidatas.length === 0) {
+            retornosUsados[caminho].clear();
+            candidatas.push(
+                ...[...perguntasVisitadas[caminho]].filter((id) => id !== atual)
+            );
+        }
+
+        if (candidatas.length === 0) {
             destino = "inicio";
+            indicePorCaminho[caminho] = -1;
         } else {
-            indicePorCaminho[caminho] = indiceAnterior;
-            destino = ordemPorCaminho[caminho][indiceAnterior];
+            destino = aleatorio(candidatas);
+            retornosUsados[caminho].add(destino);
+            indicePorCaminho[caminho] = ordemPorCaminho[caminho].indexOf(destino);
         }
     } else if (opcaoSelecionada.tipo === "trocar") {
         const outroCaminho = origem.caminho === "A" ? "B" : "A";
