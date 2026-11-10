@@ -1,5 +1,5 @@
 :root{
-    --cor-fundo: #D6DED5;
+    --cor-fundo: #C6D1C5;
     --cor-principal: #36594F;
     --cor-secundaria: #29463E;
     --cor-destaque: #D7BE78;
@@ -67,6 +67,32 @@ body {
     top: 68%;
     left: 24%;
     font-size: 1.2rem;
+}
+
+.fundo-simbolos span:nth-child(6) {
+    top: 44%;
+    left: 4%;
+    font-size: 2rem;
+    transform: rotate(12deg);
+}
+
+.fundo-simbolos span:nth-child(7) {
+    bottom: 8%;
+    right: 34%;
+    font-size: 2.2rem;
+}
+
+.fundo-simbolos span:nth-child(8) {
+    top: 76%;
+    right: 7%;
+    font-size: 2rem;
+    transform: rotate(-8deg);
+}
+
+.fundo-simbolos span:nth-child(9) {
+    top: 44%;
+    right: 4%;
+    font-size: 2rem;
 }
 
 .caixa-principal{
