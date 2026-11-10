@@ -1,9 +1,9 @@
 :root{
-    --cor-fundo: #E9EEE6;
-    --cor-principal: #285447;
-    --cor-secundaria: #183B32;
-    --cor-destaque: #E3B23C;
-    --cor-texto: #F7F4E8;
+    --cor-fundo: #D6DED5;
+    --cor-principal: #36594F;
+    --cor-secundaria: #29463E;
+    --cor-destaque: #D7BE78;
+    --cor-texto: #F5F3EA;
 
 }
 
@@ -20,7 +20,58 @@ body {
     font-family: "Trebuchet MS", sans-serif;
 }
 
+.fundo-simbolos {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    color: rgba(41, 70, 62, 0.22);
+    font-family: Georgia, serif;
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.fundo-simbolos span {
+    position: absolute;
+}
+
+.fundo-simbolos span:nth-child(1) {
+    top: 9%;
+    left: 9%;
+    font-size: 2rem;
+    transform: rotate(-12deg);
+}
+
+.fundo-simbolos span:nth-child(2) {
+    top: 17%;
+    right: 8%;
+    font-size: 1.5rem;
+    transform: rotate(10deg);
+}
+
+.fundo-simbolos span:nth-child(3) {
+    bottom: 14%;
+    left: 10%;
+    font-size: 2.4rem;
+    transform: rotate(8deg);
+}
+
+.fundo-simbolos span:nth-child(4) {
+    bottom: 20%;
+    right: 12%;
+    font-size: 1.8rem;
+    transform: rotate(-10deg);
+}
+
+.fundo-simbolos span:nth-child(5) {
+    top: 68%;
+    left: 24%;
+    font-size: 1.2rem;
+}
+
 .caixa-principal{
+    position: relative;
+    z-index: 1;
     background-color: var(--cor-principal);
     width: min(100%, 760px);
     padding: 52px;
@@ -53,9 +104,17 @@ h1 {
 .resumo {
     max-width: 610px;
     margin: 24px 0 30px;
-    color: #E1E9DE;
+    color: #DFE7DE;
     font-size: 1.05rem;
     line-height: 1.7;
+}
+
+.resumo-caminhos {
+    margin-top: -14px;
+}
+
+.resumo-caminhos strong {
+    color: var(--cor-destaque);
 }
 
 .formulario-inicial label {
@@ -69,10 +128,10 @@ h1 {
     width: 100%;
     margin-bottom: 18px;
     padding: 13px 14px;
-    border: 1px solid #B8C8BA;
+    border: 1px solid #C3CEC2;
     border-radius: 8px;
     box-sizing: border-box;
-    background-color: #F7F4E8;
+    background-color: #F5F3EA;
     color: var(--cor-secundaria);
     font: inherit;
 }
@@ -120,17 +179,74 @@ button:focus-visible {
     line-height: 1.4;
 }
 
+.identificador-caminho {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 6px 10px;
+    border-left: 3px solid var(--cor-destaque);
+    background: rgba(245, 243, 234, 0.1);
+    color: var(--cor-destaque);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
 .caixa-alternativas button {
     display: block;
     width: 100%;
-    margin: 10px 0;
+    margin: 0;
     text-align: left;
     line-height: 1.5;
+}
+
+.caixa-alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.caixa-alternativas button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .caixa-resultado {
     margin-top: 20px;
     line-height: 1.7;
+}
+
+.titulo-resultado {
+    margin: 0 0 12px;
+    color: var(--cor-destaque);
+    font-family: Georgia, serif;
+}
+
+.texto-resultado {
+    white-space: pre-line;
+}
+
+.tela-creditos {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.tela-creditos p {
+    margin: 12px 0;
+}
+
+.fontes-consultadas {
+    display: inline-block;
+    margin: 0 0 18px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.fontes-consultadas a {
+    color: var(--cor-destaque);
+    overflow-wrap: anywhere;
+}
+
+[hidden] {
+    display: none !important;
 }
 
 @media (max-width: 600px) {
